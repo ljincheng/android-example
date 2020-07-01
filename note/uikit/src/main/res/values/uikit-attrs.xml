@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 基本要素-->
+    <attr name="uikit_icon_s_size" format="dimension" />
+    <attr name="uikit_icon_m_size" format="dimension" />
+    <attr name="uikit_icon_l_size" format="dimension" />
+    <attr name="uikit_margin_s_size" format="dimension" />
+    <attr name="uikit_margin_m_size" format="dimension" />
+    <attr name="uikit_margin_l_size" format="dimension" />
+    <attr name="uikit_font_h1_size" format="dimension" />
+    <attr name="uikit_font_h2_size" format="dimension" />
+    <attr name="uikit_font_h3_size" format="dimension" />
+    <attr name="uikit_font_h4_size" format="dimension" />
+    <attr name="uikit_font_h5_size" format="dimension" />
+    <attr name="uikit_font_h6_size" format="dimension" />
+    <attr name="uikit_font_subtitle1_size" format="dimension" />
+    <attr name="uikit_font_subtitle2_size" format="dimension" />
+    <attr name="uikit_font_body1_size" format="dimension" />
+    <attr name="uikit_font_body2_size" format="dimension" />
+    <attr name="uikit_font_button_size" format="dimension" />
+    <attr name="uikit_font_caption_size" format="dimension" />
+    <attr name="uikit_font_overline_size" format="dimension" />
+
+    <attr name="uikit_color_primary" format="color" />
+    <attr name="uikit_color_secondary" format="color" />
+    <attr name="uikit_color_primary_variant" format="color" />
+    <attr name="uikit_color_secondary_variant" format="color" />
+    <attr name="uikit_color_background" format="color" />
+    <attr name="uikit_color_surface" format="color" />
+    <attr name="uikit_color_error" format="color" />
+    <attr name="uikit_color_on_primary" format="color" />
+    <attr name="uikit_color_on_secondary" format="color" />
+    <attr name="uikit_color_on_background" format="color" />
+    <attr name="uikit_color_on_surface" format="color" />
+    <attr name="uikit_color_on_error" format="color" />
+
+
+
+    <!-- 组件要素-->
+    <attr name="common_list_item_vertical_margin" format="dimension" />
+    <attr name="common_list_item_margin_top" format="dimension" />
+    <attr name="common_list_item_margin_bottom" format="dimension" />
+    <attr name="common_list_title_color" format="color|reference"/>
+
+
+    <attr name="uikit_tipPointStyle" format="reference"/>
+
+    <attr name="uikit_orientation" format="enum">
+        <enum name="horizontal" value="0"/>
+        <enum name="vertical" value="1"/>
+    </attr>
+    <attr name="common_list_item_switch" format="reference"/>
+    <attr name="common_list_item_arrow" format="reference"/>
+    <declare-styleable name="CommonListItemView">
+        <attr name="uikit_orientation"/>
+        <attr name="uikit_accessory_type" format="enum">
+            <enum name="none" value="0"/>
+            <enum name="chevron" value="1"/>
+            <enum name="switcher" value="2"/>
+            <enum name="custom" value="3"/>
+        </attr>
+    </declare-styleable>
+</resources>

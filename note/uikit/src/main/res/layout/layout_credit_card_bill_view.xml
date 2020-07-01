@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_thumbnail"
+        android:layout_width="?attr/uikit_icon_m_size"
+        android:layout_height="?attr/uikit_icon_m_size"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        tools:src="@android:color/darker_gray"
+        android:layout_marginLeft="?attr/uikit_margin_l_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/group_list_item_accessoryView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginRight="?attr/uikit_margin_l_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Placeholder
+        android:id="@+id/holder_before_accessory"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:layout_marginRight="?attr/uikit_margin_l_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/group_list_item_accessoryView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginRight="0dp"/>
+
+    <TextView
+        android:id="@+id/textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="?attr/uikit_margin_l_size"
+        android:layout_marginRight="?attr/uikit_margin_l_size"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="5dp"
+        android:layout_marginTop="?attr/uikit_margin_m_size"
+        android:textSize="?attr/uikit_font_subtitle2_size"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/imageview_thumbnail"
+        app:layout_constraintRight_toLeftOf="@+id/holder_before_accessory"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginLeft="0dp"
+        app:layout_goneMarginRight="0dp"
+        app:layout_constraintHorizontal_bias="0"
+        tools:text="Title goes here"/>
+
+
+    <TextView
+        android:id="@+id/textview_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="?attr/uikit_margin_l_size"
+        android:layout_marginRight="?attr/uikit_margin_l_size"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="5dp"
+        android:visibility="gone"
+        android:layout_marginBottom="?attr/uikit_margin_m_size"
+        android:textSize="?attr/uikit_font_overline_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintWidth_default="wrap"
+        app:layout_constraintLeft_toRightOf="@+id/textview_title"
+        app:layout_constraintRight_toLeftOf="@+id/holder_before_accessory"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginRight="0dp"
+        app:layout_goneMarginBottom="?attr/common_list_item_margin_bottom"
+        tools:text="Secondary text"/>f
+
+
+
+    <androidx.constraintlayout.widget.Placeholder
+        android:id="@+id/holder_after_title"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:layout_marginLeft="?attr/uikit_margin_m_size"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_title"
+        app:layout_constraintLeft_toRightOf="@+id/textview_title"
+        app:layout_constraintTop_toTopOf="@+id/textview_title" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_tips_new"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="Update tips"
+        android:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_tips_dot"
+        style="?attr/uikit_tipPointStyle"
+        android:src="@drawable/uikit_tips_point"
+        android:contentDescription="Red dot"
+        android:visibility="gone"/>
+
+</merge>

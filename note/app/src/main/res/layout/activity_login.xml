@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="16dp"
+    android:layout_gravity="center_vertical">
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+    </ProgressBar>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_container"
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+    <EditText
+        android:id="@+id/edit_uid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginVertical="8dp"
+        android:paddingLeft="56dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/input_userName"
+        android:inputType="textAutoComplete"
+        android:textSize="18sp"  />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_account_username_black_24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="16dp"
+            />
+
+    <EditText
+        android:id="@+id/edit_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/edit_uid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginVertical="8dp"
+        android:paddingLeft="56dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/input_password"
+        android:inputType="textPassword"
+        android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_account_password_black_24dp"
+            app:layout_constraintTop_toBottomOf="@+id/edit_uid"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="16dp"
+            />
+
+        <ImageView
+            android:id="@+id/btn_pwd_eye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_eye_off_black_24dp"
+            app:layout_constraintTop_toBottomOf="@+id/edit_uid"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="16dp"
+            />
+
+        <ImageView
+            android:id="@+id/img_captcha"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/edit_pwd"
+            app:layout_constraintRight_toRightOf="parent"></ImageView>
+
+
+        <EditText
+            android:id="@+id/edit_captcha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/edit_pwd"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/img_captcha"
+            android:layout_marginVertical="8dp"
+            android:paddingLeft="56dp"
+            android:fontFamily="sans-serif-light"
+            android:inputType="textAutoComplete"
+            android:hint="@string/input_captcha"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_captcha_tag_24"
+            app:layout_constraintTop_toBottomOf="@+id/edit_pwd"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="16dp"
+            />
+
+
+    <Button
+        android:id="@+id/button_login"
+        style="@android:style/Widget.Material.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="@string/login"
+        android:layout_marginTop="8dp"
+        android:layout_marginVertical="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/img_captcha"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:targetApi="m" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

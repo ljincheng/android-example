@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="common_list_item_vertical_margin">8dp</dimen>
+    <dimen name="common_list_item_margin_top">8dp</dimen>
+    <dimen name="common_list_item_margin_bottom">8dp</dimen>
+
+
+    <dimen name="uikit_tips_point_size">8dp</dimen>
+
+    <dimen name="uikit_icon_s_size">24dp</dimen>
+    <dimen name="uikit_icon_m_size">40dp</dimen>
+    <dimen name="uikit_icon_l_size">56dp</dimen>
+
+    <dimen name="uikit_margin_s_size">4dp</dimen>
+    <dimen name="uikit_margin_m_size">8dp</dimen>
+    <dimen name="uikit_margin_l_size">16dp</dimen>
+
+    <dimen name="uikit_font_h1_size">96sp</dimen>
+    <dimen name="uikit_font_h2_size">60sp</dimen>
+    <dimen name="uikit_font_h3_size">48sp</dimen>
+    <dimen name="uikit_font_h4_size">34sp</dimen>
+    <dimen name="uikit_font_h5_size">24sp</dimen>
+    <dimen name="uikit_font_h6_size">20sp</dimen>
+    <dimen name="uikit_font_subtitle1_size">16sp</dimen>
+    <dimen name="uikit_font_subtitle2_size">14sp</dimen>
+    <dimen name="uikit_font_body1_size">16sp</dimen>
+    <dimen name="uikit_font_body2_size">14sp</dimen>
+    <dimen name="uikit_font_button_size">14sp</dimen>
+    <dimen name="uikit_font_caption_size">12sp</dimen>
+    <dimen name="uikit_font_overline_size">10sp</dimen>
+
+</resources>

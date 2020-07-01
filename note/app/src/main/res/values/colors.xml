@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1E88E5</color>
+    <color name="colorPrimaryDark">#424242</color>
+    <color name="colorAccent">#82B1FF</color>
+
+    <color name="ic_launcher_background">#EFF5F8</color>
+    <color name="skip_window_background">#FAFAFA</color>
+    <color name="skip_toolbar_background">#FFFFFF</color>
+    <color name="skip_bottomnavigation_background">#FFFFFF</color>
+    <color name="skip_list_background">#FFFFFF</color>
+    <color name="skip_font_h6_color">#000000</color>
+    <color name="skip_font_listbody_color">#212121</color>
+    <color name="skip_icon_fill_color">#4DE0E0E0</color>
+</resources>

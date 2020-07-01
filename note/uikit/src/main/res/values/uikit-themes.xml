@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="UIKit.UIKitAppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="common_list_item_switch">@drawable/icon_switch</item>
+        <item name="common_list_item_arrow">@drawable/ic_arrow_right_24</item>
+        <item name="common_list_item_vertical_margin">@dimen/common_list_item_vertical_margin</item>
+        <item name="common_list_item_margin_top">@dimen/common_list_item_margin_top</item>
+        <item name="common_list_item_margin_bottom">@dimen/common_list_item_margin_bottom</item>
+        <item name="common_list_title_color">@color/list_item_title_color</item>
+        <item name="uikit_tipPointStyle">@style/UIKit_TipPoint</item>
+
+        <item name="uikit_icon_s_size">@dimen/uikit_icon_s_size</item>
+        <item name="uikit_icon_m_size">@dimen/uikit_icon_m_size</item>
+        <item name="uikit_icon_l_size">@dimen/uikit_icon_l_size</item>
+        <item name="uikit_margin_s_size">@dimen/uikit_margin_s_size</item>
+        <item name="uikit_margin_m_size">@dimen/uikit_margin_m_size</item>
+        <item name="uikit_margin_l_size">@dimen/uikit_margin_l_size</item>
+
+        <item name="uikit_font_h1_size">@dimen/uikit_font_h1_size</item>
+        <item name="uikit_font_h2_size">@dimen/uikit_font_h2_size</item>
+        <item name="uikit_font_h3_size">@dimen/uikit_font_h3_size</item>
+        <item name="uikit_font_h4_size">@dimen/uikit_font_h4_size</item>
+        <item name="uikit_font_h5_size">@dimen/uikit_font_h5_size</item>
+        <item name="uikit_font_h6_size">@dimen/uikit_font_h6_size</item>
+        <item name="uikit_font_subtitle1_size">@dimen/uikit_font_subtitle1_size</item>
+        <item name="uikit_font_subtitle2_size">@dimen/uikit_font_subtitle2_size</item>
+        <item name="uikit_font_body1_size">@dimen/uikit_font_body1_size</item>
+        <item name="uikit_font_body2_size">@dimen/uikit_font_body2_size</item>
+        <item name="uikit_font_button_size">@dimen/uikit_font_button_size</item>
+        <item name="uikit_font_caption_size">@dimen/uikit_font_caption_size</item>
+        <item name="uikit_font_overline_size">@dimen/uikit_font_overline_size</item>
+
+        <item name="uikit_color_primary">@color/uikit_color_primary</item>
+        <item name="uikit_color_secondary">@color/uikit_color_secondary</item>
+        <item name="uikit_color_primary_variant">@color/uikit_color_primary_variant</item>
+        <item name="uikit_color_secondary_variant">@color/uikit_color_secondary_variant</item>
+        <item name="uikit_color_background">@color/uikit_color_background</item>
+        <item name="uikit_color_surface">@color/uikit_color_surface</item>
+        <item name="uikit_color_error">@color/uikit_color_error</item>
+        <item name="uikit_color_on_primary">@color/uikit_color_on_primary</item>
+        <item name="uikit_color_on_secondary">@color/uikit_color_on_secondary</item>
+        <item name="uikit_color_on_background">@color/uikit_color_on_background</item>
+        <item name="uikit_color_on_surface">@color/uikit_color_on_surface</item>
+        <item name="uikit_color_on_error">@color/uikit_color_on_error</item>
+    </style>
+
+
+    <style name="UIKit_TipPoint">
+        <item name="android:layout_width">@dimen/uikit_tips_point_size</item>
+        <item name="android:layout_height">@dimen/uikit_tips_point_size</item>
+        <item name="android:background">@drawable/uikit_tips_point</item>
+    </style>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="list_item_title_color">#ffffff</color>
+
+    <color name="uikit_color_primary">#616161</color>
+    <color name="uikit_color_secondary">#FF9800</color>
+    <color name="uikit_color_primary_variant">#9E9E9E</color>
+    <color name="uikit_color_secondary_variant">#F57C00</color>
+    <color name="uikit_color_background">#E0E0E0</color>
+    <color name="uikit_color_surface">#212121</color>
+    <color name="uikit_color_error">#B00020</color>
+
+    <color name="uikit_color_on_primary">#FAFAFA</color>
+    <color name="uikit_color_on_secondary">#FAFAFA</color>
+    <color name="uikit_color_on_background">#FAFAFA</color>
+    <color name="uikit_color_on_surface">#FAFAFA</color>
+    <color name="uikit_color_on_error">#B00020</color>
+</resources>

@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Base application theme. -->
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+    <style name="AppTheme" parent="UIKit.UIKitAppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">?attr/uikit_color_primary</item>
+        <item name="colorPrimaryDark">?attr/uikit_color_primary_variant</item>
+        <item name="colorAccent">?attr/uikit_color_secondary</item>
+<!--        <item name="android:windowBackground">@color/skip_window_background</item>-->
+    </style>
+    
+    <style name="text_title_h6">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/skip_font_h6_color</item>
+    </style>
+
+    <style name="text_body_list">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/skip_font_listbody_color</item>
+    </style>
+
+    <style name="text_subtitle_1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/skip_font_h6_color</item>
+    </style>
+    <style name="text_subtitle_2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/skip_font_h6_color</item>
+    </style>
+    <style name="text_overline">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/skip_font_h6_color</item>
+    </style>
+
+</resources>

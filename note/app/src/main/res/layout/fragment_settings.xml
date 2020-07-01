@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="?attr/actionBarSize">
+<LinearLayout
+    android:id="@+id/layout_bodyView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/account_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Material.Headline"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="16dp"
+            android:layout_marginRight="96dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:targetApi="lollipop"
+            tools:text="我的名字很长了"
+            tools:ignore="MissingConstraints"></TextView>
+
+
+        <ImageView
+            android:id="@+id/account_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginLeft="86dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_account_circle_black_80dp"></ImageView>
+
+        <TextView
+            android:id="@+id/account_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Material.Caption"
+            app:layout_constraintTop_toBottomOf="@id/account_userName"
+            app:layout_constraintRight_toLeftOf="@id/account_icon"
+            tools:targetApi="lollipop"
+            tools:text="我是很长很长的名称哦，可以理解，这不是问题，不这只有这一点长哦，哈哈"
+            tools:ignore="MissingConstraints"></TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+</ScrollView>
