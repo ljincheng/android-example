@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.booktable.uikit.ui.widget.RadiusImageView
+        android:id="@+id/mImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"></cn.booktable.uikit.ui.widget.RadiusImageView>
+    <TextView
+        android:id="@+id/mTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:textSize="?attr/uikit_font_subtitle1_size"
+        android:layout_marginBottom="@dimen/uikit_margin_m_size"
+        android:layout_marginHorizontal="@dimen/uikit_margin_m_size"></TextView>
+</FrameLayout>

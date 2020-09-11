@@ -42,6 +42,7 @@
 
     <TextView
         android:id="@+id/textview_title"
+        style="@style/UIKit_HeaderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="?attr/common_list_item_margin_top"
@@ -51,7 +52,6 @@
         android:ellipsize="end"
         android:includeFontPadding="false"
         android:lineSpacingExtra="5dp"
-        android:textSize="?attr/uikit_font_h6_size"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/imageview_thumbnail"

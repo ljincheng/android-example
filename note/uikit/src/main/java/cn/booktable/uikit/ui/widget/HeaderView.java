@@ -16,11 +16,15 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Placeholder;
 
+import com.alibaba.fastjson.JSONObject;
+
 import cn.booktable.uikit.R;
+import cn.booktable.uikit.ui.adaptor.SimpleView;
+import cn.booktable.uikit.ui.attr.ViewAttrHelper;
 import cn.booktable.uikit.util.ResHelper;
 import cn.booktable.uikit.util.StringHelper;
 
-public class HeaderView extends ConstraintLayout  {
+public class HeaderView extends ConstraintLayout implements SimpleView,View.OnClickListener {
     /**
      * detailText 在 title 文字的下方
      */
@@ -79,6 +83,7 @@ public class HeaderView extends ConstraintLayout  {
     private Placeholder mBeforeAccessoryHolder;
     private boolean mDisableSwitchSelf = false;
     private boolean mShowArrow=true;
+    private JSONObject mViewData;
 
     public HeaderView(Context context) {
         this(context,null);
@@ -320,5 +325,53 @@ public class HeaderView extends ConstraintLayout  {
     public void addTo(ViewGroup viewGroup)
     {
         viewGroup.addView(this);
+    }
+
+
+    @Override
+    public void onClick(View event)
+    {
+        if(mViewData!=null && mViewData.containsKey(WidgetContext.EVENT_KEY)) {
+            WidgetContext.onClickEvent(this.getContext(),this,mViewData);
+        }
+    }
+
+    @Override
+    public void setViewData(JSONObject data) {
+        ViewGroup.LayoutParams lp=ViewAttrHelper.newLinearLayoutParams(ViewAttrHelper.MATCH_WRAP);
+        setLayoutParams(lp);
+        ViewAttrHelper.encodeProperties(getContext(),this,data);
+        if(data!=null)
+        {
+            if(data.containsKey("title"))
+            {
+                setTitle(data.getString("title"));
+            }
+            if(data.containsKey("subtitle"))
+            {
+                setSubtitle(data.getString("subtitle"));
+            }
+            if(data.containsKey("showMore") )
+            {
+                Boolean showMore=data.getBoolean("showMore");
+                if(showMore!=null && showMore.booleanValue())
+                {
+                    TextView moreView=new TextView(this.getContext());
+                    moreView.setLayoutParams(ViewAttrHelper.newLinearLayoutParams(ViewAttrHelper.WRAP_WRAP));
+                    moreView.setText("更多");
+                    moreView.setOnClickListener(this);
+                    setIconType(ACCESSORY_TYPE_CUSTOM);
+                    addIconView(moreView);
+                }
+
+            }
+            mViewData=data;
+        }
+
+    }
+
+    @Override
+    public View getView() {
+        return this;
     }
 }

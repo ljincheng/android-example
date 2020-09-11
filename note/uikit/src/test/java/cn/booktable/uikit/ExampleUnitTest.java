@@ -1,6 +1,10 @@
 package cn.booktable.uikit;
 
+import android.view.ViewGroup;
+
 import org.junit.Test;
+
+import cn.booktable.uikit.ui.attr.ViewAttrHelper;
 
 import static org.junit.Assert.*;
 
@@ -14,4 +18,5 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
 }

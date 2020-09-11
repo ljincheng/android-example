@@ -13,11 +13,20 @@ import android.widget.LinearLayout;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
+import java.util.List;
+
+import cn.booktable.uikit.ui.adaptor.AdaptorViewManage;
+import cn.booktable.uikit.ui.adaptor.SimpleView;
+import cn.booktable.uikit.ui.adaptor.SimpleViewData;
+import cn.booktable.uikit.ui.attr.ViewAttrHelper;
 import cn.booktable.uikit.util.DisplayHelper;
 import cn.booktable.uikit.util.DrawableHelper;
 import cn.booktable.uikit.util.LayoutHelper;
 
-public class GroupListView extends DividerLinearLayout {
+public class GroupListView extends DividerLinearLayout implements SimpleView {
 
     private int hasDivider=SHOW_DIVIDER_NONE;
     private int mDividerHeight=0;
@@ -78,5 +87,50 @@ public class GroupListView extends DividerLinearLayout {
     }
 
 
+    @Override
+    public void setViewData(JSONObject data) {
+        LinearLayout.LayoutParams rootLp =ViewAttrHelper.newLinearLayoutParams(ViewAttrHelper.MATCH_WRAP);
+        setLayoutParams(rootLp);
+        ViewAttrHelper.encodeProperties(getContext(),this,data);
+        if(data.containsKey("divider"))
+        {
+            if(data.getBoolean("divider"))
+            {
+                setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE|LinearLayout.SHOW_DIVIDER_END);
+                int borderColor=Color.GRAY;
+                if(data.containsKey("borderColor"))
+                {
+                    borderColor=Color.parseColor(data.getString("borderColor"));
+                }
+                setBorderColor(borderColor).setBorderWidth(DisplayHelper.dp2px(getContext(),2));
+                setDividerPaddingLeft(0);
+            }
+        }
+        if(data.containsKey("data")) {
+            removeAllViews();
+            JSONArray items=data.getJSONArray("data");
+//            List<JSONObject> datas=items.toJavaList(JSONObject.class);
+            for(int i=0,k=items.size();i<k;i++)
+            {
+                JSONObject item=items.getJSONObject(i);
+                if(item.containsKey("type"))
+                {
+                    Integer type=item.getInteger("type");
+                    SimpleView childView= AdaptorViewManage.createViewType(this,type.intValue());
+                    if(childView!=null)
+                    {
+                        childView.setViewData(item);
+                        addView(childView.getView());
+                    }
 
+                }
+            }
+
+        }
+    }
+
+    @Override
+    public View getView() {
+        return this;
+    }
 }

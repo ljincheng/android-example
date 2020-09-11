@@ -9,6 +9,7 @@
         <item name="common_list_item_margin_bottom">@dimen/common_list_item_margin_bottom</item>
         <item name="common_list_title_color">@color/list_item_title_color</item>
         <item name="uikit_tipPointStyle">@style/UIKit_TipPoint</item>
+        <item name="uikit_headerTextStyle">@style/UIKit_HeaderText</item>
 
         <item name="uikit_icon_s_size">@dimen/uikit_icon_s_size</item>
         <item name="uikit_icon_m_size">@dimen/uikit_icon_m_size</item>
@@ -50,5 +51,10 @@
         <item name="android:layout_width">@dimen/uikit_tips_point_size</item>
         <item name="android:layout_height">@dimen/uikit_tips_point_size</item>
         <item name="android:background">@drawable/uikit_tips_point</item>
+    </style>
+
+    <style name="UIKit_HeaderText">
+        <item name="android:textSize">@dimen/uikit_font_h6_size</item>
+        <item name="android:textColor">@color/uikit_color_on_primary</item>
     </style>
 </resources>

@@ -1,3 +1,5 @@
 rootProject.name='note'
 include ':app'
 include ':uikit'
+include ':mediaplayer'
+include ':common'

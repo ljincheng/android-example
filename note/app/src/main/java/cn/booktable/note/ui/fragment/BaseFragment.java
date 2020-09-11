@@ -21,4 +21,8 @@ public abstract class BaseFragment extends UIFragment {
     }
 
 
+    public void onNavigationItemSelected()
+    {
+
+    }
 }

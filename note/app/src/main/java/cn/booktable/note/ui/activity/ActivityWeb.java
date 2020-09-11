@@ -7,9 +7,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -20,29 +22,45 @@ import android.webkit.WebViewClient;
 import java.util.HashMap;
 import java.util.Map;
 
+import cn.booktable.mediaplayer.activities.OneVideoActivity;
 import cn.booktable.note.R;
 import cn.booktable.note.myApplication;
 import cn.booktable.note.ui.adapter.FragmentWebAdapter;
 import cn.booktable.note.ui.fragment.FragmentWeb;
+import cn.booktable.uikit.util.StringHelper;
 
 public class ActivityWeb extends UserActivity {
 
     private WebView mWebView;
     private String mWebUrl;
+    private String mWebTitle;
 
     @Override
     public int fragmentContainerId() {
         return R.id.fragment_container;
     }
 
+    public static Intent newIntent(Context context, String webPath, String webTitle) {
+        Intent intent = new Intent(context, ActivityWeb.class);
+        intent.putExtra("webPath", webPath);
+        intent.putExtra("webTitle", webTitle);
+        return intent;
+    }
+
+    public static void intentTo(Context context, String webPath, String webTitle) {
+        context.startActivity(newIntent(context, webPath, webTitle));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getIntent() != null && getIntent().getExtras() != null) {
-            Bundle extras = getIntent().getExtras();
-            mWebUrl =extras.getString("url");
-        }
+        mWebUrl = getIntent().getStringExtra("webPath");
+        mWebTitle=getIntent().getStringExtra("webTitle");
+//        if (getIntent() != null && getIntent().getExtras() != null) {
+////            Bundle extras = getIntent().getExtras();
+////            mWebUrl =extras.getString("webPath");
+////        }
         setContentView(R.layout.activity_web);
 
         mWebView=findViewById(R.id.webview);
@@ -53,6 +71,9 @@ public class ActivityWeb extends UserActivity {
         setSupportActionBar(myToolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+        if(StringHelper.isNotBlank(mWebTitle)) {
+            ab.setTitle(mWebTitle);
+        }
 
         initWebView();
     }
@@ -68,6 +89,8 @@ public class ActivityWeb extends UserActivity {
 //            header.put("token",myApplication.getToken());
 //        }
         mWebView.loadUrl(mWebUrl,header);
+
+
     }
 
 
@@ -85,6 +108,16 @@ public class ActivityWeb extends UserActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (item.getItemId() == android.R.id.home)//返回键
+        {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private class MyWebViewClient extends WebViewClient {
 

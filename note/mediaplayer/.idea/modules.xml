@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1405987209/app.iml" filepath="$PROJECT_DIR$/.idea/modules/1405987209/app.iml" group="note/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mediaplayer.iml" filepath="$PROJECT_DIR$/.idea/modules/mediaplayer.iml" group="note/mediaplayer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1340368247/note.iml" filepath="$PROJECT_DIR$/.idea/modules/1340368247/note.iml" group="note" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1742729942/uikit.iml" filepath="$PROJECT_DIR$/.idea/modules/-1742729942/uikit.iml" group="note/uikit" />
+    </modules>
+  </component>
+</project>

@@ -45,6 +45,7 @@
 
 
     <attr name="uikit_tipPointStyle" format="reference"/>
+    <attr name="uikit_headerTextStyle" format="reference"/>
 
     <attr name="uikit_orientation" format="enum">
         <enum name="horizontal" value="0"/>
@@ -59,6 +60,32 @@
             <enum name="chevron" value="1"/>
             <enum name="switcher" value="2"/>
             <enum name="custom" value="3"/>
+        </attr>
+    </declare-styleable>
+
+
+    <attr name="interval" format="integer"/>
+    <attr name="showIndicator" format="boolean"/>
+    <attr name="orientation" format="enum">
+        <enum name="horizontal" value="0"/>
+        <enum name="vertical" value="1"/>
+    </attr>
+    <attr name="autoPlaying" format="boolean"/>
+    <declare-styleable name="GalleryViewBase">
+        <attr name="interval"/>
+        <attr name="showIndicator" />
+        <attr name="orientation" />
+        <attr name="autoPlaying"/>
+        <attr name="indicatorSelectedSrc" format="color|reference"/>
+        <attr name="indicatorUnselectedSrc" format="color|reference"/>
+        <attr name="indicatorSpace" format="dimension|reference"/>
+        <attr name="indicatorMarginLeft" format="dimension|reference"/>
+        <attr name="indicatorMarginRight" format="dimension|reference"/>
+        <attr name="indicatorMarginBottom" format="dimension|reference"/>
+        <attr name="indicatorGravity" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
         </attr>
     </declare-styleable>
 </resources>

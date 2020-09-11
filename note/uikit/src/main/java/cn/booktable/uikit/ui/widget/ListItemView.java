@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatCheckBox;
@@ -16,11 +17,16 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Placeholder;
 
+import com.alibaba.fastjson.JSONObject;
+
 import cn.booktable.uikit.R;
+import cn.booktable.uikit.ui.adaptor.SimpleView;
+import cn.booktable.uikit.ui.attr.ViewAttrHelper;
+import cn.booktable.uikit.util.DisplayHelper;
 import cn.booktable.uikit.util.ResHelper;
 import cn.booktable.uikit.util.StringHelper;
 
-public class ListItemView  extends ConstraintLayout {
+public class ListItemView  extends ConstraintLayout implements SimpleView ,View.OnClickListener{
     /**
      * detailText 在 title 文字的下方
      */
@@ -86,6 +92,7 @@ public class ListItemView  extends ConstraintLayout {
     private boolean mDisableSwitchSelf = false;
     private boolean mShowArrow=true;
     private int mTipShown = TIP_SHOW_NOTHING;
+    private JSONObject mViewData;
 
     public ListItemView(Context context) {
         this(context,null);
@@ -121,6 +128,7 @@ public class ListItemView  extends ConstraintLayout {
 
         setOrientation(orientation);
         setIconType(accessoryType);
+        this.setOnClickListener(this);
 
     }
 
@@ -381,6 +389,46 @@ public class ListItemView  extends ConstraintLayout {
     public void addTo(ViewGroup viewGroup)
     {
         viewGroup.addView(this);
+    }
+
+
+    @Override
+    public void onClick(View event)
+    {
+        if(mViewData!=null && mViewData.containsKey(WidgetContext.EVENT_KEY)) {
+            WidgetContext.onClickEvent(this.getContext(),this,mViewData);
+        }
+    }
+
+    @Override
+    public void setViewData(JSONObject data) {
+        ViewAttrHelper.encodeProperties(getContext(),this,data);
+        if(data.containsKey("title"))
+        {
+            setTitle(data.getString("title"));
+        }
+        if(data.containsKey("subtitle"))
+        {
+            setSubtitle(data.getString("subtitle"));
+        }
+        if(data.containsKey("img"))
+        {
+            RadiusImageView imageView=new RadiusImageView(getContext());
+            LinearLayout.LayoutParams lp= ViewAttrHelper.newLinearLayoutParams(ViewAttrHelper.WRAP_WRAP);
+            lp.height= DisplayHelper.dp2px(getContext(),80);
+            lp.width= DisplayHelper.dp2px(getContext(),160);
+            imageView.setLayoutParams(lp);
+            setIconType(ListItemView.ACCESSORY_TYPE_CUSTOM);
+            imageView.setRadius(DisplayHelper.dp2px(getContext(),20));
+            addIconView(imageView);
+            imageView.setSrc(data.getString("img"));
+        }
+        mViewData=data;
+    }
+
+    @Override
+    public View getView() {
+        return this;
     }
 }
 

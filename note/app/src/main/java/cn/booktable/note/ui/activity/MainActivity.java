@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.ListFragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -14,11 +15,19 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import cn.booktable.mediaplayer.activities.OneVideoActivity;
+import cn.booktable.note.ui.fragment.FragmentTest;
+import cn.booktable.note.ui.viewmodel.WidgetDo;
+import cn.booktable.note.ui.viewmodel.WidgetModel;
+import cn.booktable.uikit.ui.activities.WidgetEvents;
 import cn.booktable.uikit.ui.widget.BottomNavigationView;
+
+import com.alibaba.fastjson.JSONObject;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 import java.util.List;
@@ -32,14 +41,16 @@ import cn.booktable.note.ui.fragment.FragmentHome;
 import cn.booktable.note.ui.fragment.FragmentNotices;
 import cn.booktable.note.ui.fragment.FragmentSettings;
 import cn.booktable.note.viewmodel.user.UserProfileViewModel;
+import cn.booktable.uikit.ui.widget.WidgetContext;
 
-public class MainActivity extends UserActivity {
+public class MainActivity extends UserActivity implements WidgetEvents {
 
 
     private UserProfileViewModel mUserProfileViewModel;
 
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
     private LoadUserTask mLoadUserTask=null;
+    protected WidgetModel widgetModel;
 
     @Override
     public int fragmentContainerId() {
@@ -69,6 +80,9 @@ public class MainActivity extends UserActivity {
 //        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, list).commit();
 
         setupBottomNavigationBar();
+
+        widgetModel=new ViewModelProvider(this).get(WidgetModel.class);
+        widgetModel.loadFromDatabase();
 
 //            HomeFragment firstFragment = new HomeFragment();
 //            firstFragment.setArguments(getIntent().getExtras());
@@ -162,13 +176,18 @@ public class MainActivity extends UserActivity {
                 String mTagName=CloudFragment.TAG_CLOUD;
                 Fragment fragment=mManager.findFragmentByTag(mTagName);
                 if(fragment==null) {
-                    fragment = new CloudFragment();
+                    fragment = new FragmentTest();
                     ft.add(R.id.fragment_container, fragment,CloudFragment.TAG_CLOUD);
                 }else{
                     ft.show(fragment);
                 }
                 ft.commit();
                 mManager.executePendingTransactions();
+                if(fragment instanceof BaseFragment)
+                {
+                    ((BaseFragment)fragment).onNavigationItemSelected();
+                }
+                widgetModel.loadFromDatabase();
             }
             break;
             case R.id.nav_settings:
@@ -198,6 +217,8 @@ public class MainActivity extends UserActivity {
                 showSelectedFragment(menuItem.getItemId());
                 return true;
             }
+
+
         });
         int defaultSelectedFragment=0;
         showSelectedFragment(R.id.nav_home);
@@ -272,4 +293,32 @@ public class MainActivity extends UserActivity {
         }
     }
 
+
+   private boolean viewClickEventIdle=true;//视图点击事件处理情况
+
+    @Override
+    public void OnClickEvent(View view, JSONObject viewData) {
+        if(viewClickEventIdle) {
+            try {
+                viewClickEventIdle = false;
+                if(viewData.containsKey(WidgetContext.EVENT_KEY)) {
+                    JSONObject eventObj=viewData.getJSONObject(WidgetContext.EVENT_KEY);
+                    if(eventObj.containsKey("videoPath")) {
+                        String videoPath=eventObj.getString("videoPath");
+                        String videoTitle=eventObj.containsKey("videoTitle")?eventObj.getString("videoTitle"):"";
+                        //"http://10.50.22.58:8096/Items/140c89f34bd5eefed88ad8d87138af3c/Download?api_key=40d61b09b0574e94b2bf9aa271b1699d"
+                        OneVideoActivity.intentTo(this, videoPath, videoTitle);
+                    }else if(eventObj.containsKey("webPath"))
+                    {
+                        String webPath=eventObj.getString("webPath");
+                        String webTitle=eventObj.containsKey("webTitle")?eventObj.getString("webTitle"):"";
+                        ActivityWeb.intentTo(this,webPath,webTitle);
+                    }
+                }
+                //        OneVideoActivity.intentTo(this, "http://media.booktable.cn/Items/140c89f34bd5eefed88ad8d87138af3c/Download?api_key=40d61b09b0574e94b2bf9aa271b1699d", "海洋奇缘");
+            }finally {
+                viewClickEventIdle=true;
+            }
+        }
+    }
 }

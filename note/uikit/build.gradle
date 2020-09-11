@@ -46,6 +46,19 @@ dependencies {
     // UI
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
+    //glide图片加载
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+
+    // fastjson
+    implementation 'com.alibaba:fastjson:1.1.72.android'
+
+    //加mediaplayer
+    implementation  project(':mediaplayer')
+    implementation  project(':common')
+
+
     // Testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"

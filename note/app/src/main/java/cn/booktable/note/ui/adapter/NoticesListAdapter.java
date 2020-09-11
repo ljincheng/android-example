@@ -48,12 +48,13 @@ public class NoticesListAdapter extends RecyclerView.Adapter<NoticesListAdapter.
 //
 //                        ((UIFragmentActivity)context).startUIFragment(FragmentWeb.newInstance("http://10.52.10.128:8003/#/home"));
 //                    }else {
-                        Intent intent = new Intent(v.getContext(), ActivityWeb.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("url", "http://10.52.10.128:8003/");
-                        intent.putExtras(bundle);
-                        //intent.putExtra("url", "http://10.52.10.128:8003/#/home");
-                        context.startActivity(intent, bundle);
+//                        Intent intent = new Intent(v.getContext(), ActivityWeb.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("url", "http://10.52.10.128:8003/");
+//                        intent.putExtras(bundle);
+//                        //intent.putExtra("url", "http://10.52.10.128:8003/#/home");
+//                        context.startActivity(intent, bundle);
+                        ActivityWeb.intentTo(context,"http://10.52.10.128:8003/",null);
 //                    }
                 }
             });
