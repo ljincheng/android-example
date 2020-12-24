@@ -75,51 +75,13 @@ public class MainActivity extends UserActivity implements WidgetEvents {
             ab.setTitle("这是什么？");
             ab.setSubtitle("hello world");
 
-            //设置frament容器
-//        HomeFragment list = new HomeFragment();
-//        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, list).commit();
-
         setupBottomNavigationBar();
 
         widgetModel=new ViewModelProvider(this).get(WidgetModel.class);
         widgetModel.loadFromDatabase();
 
-//            HomeFragment firstFragment = new HomeFragment();
-//            firstFragment.setArguments(getIntent().getExtras());
-//            getSupportFragmentManager().beginTransaction()
-//                    .add(R.id.fragment_container, firstFragment).commit();
-
-
-
-
-
-//        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-//        final UserProfileListAdapter adapter = new UserProfileListAdapter(this);
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//        // Get a new or existing ViewModel from the ViewModelProvider.
         mUserProfileViewModel = new ViewModelProvider(this).get(UserProfileViewModel.class);
-//
-//        // Add an observer on the LiveData returned by getAlphabetizedWords.
-//        // The onChanged() method fires when the observed data changes and the activity is
-//        // in the foreground.
-//        mUserProfileViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
-//            @Override
-//            public void onChanged(@Nullable final List<User> users) {
-//                // Update the cached copy of the words in the adapter.
-//                adapter.setUser(users);
-//            }
-//        });
-//
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, NewUserActivity.class);
-//                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
-//            }
-//        });
+
     }
 
     /**

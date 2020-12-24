@@ -152,7 +152,7 @@ public class FragmentHome extends BaseFragment {
     @Override
     public void onStart() {
         super.onStart();
-        setActivityActionBarVisible(false);
+//        setActivityActionBarVisible(false);
 
 
         mHomeViewTask=new HomeViewTask();
